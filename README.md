@@ -1,4 +1,4 @@
-# smartwallet-website
+# Identity Agent
 
 ## Installation
 

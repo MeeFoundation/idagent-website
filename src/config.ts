@@ -1,41 +1,48 @@
+export const appLink = "https://app.itsmee.org/";
 export const meeFoundation = "https://mee.foundation/";
-export const github = "https://github.com/MeeFoundation/smartwallet-website";
+export const github =
+  "https://github.com/MeeFoundation/private-advertising-website";
 export const discord = "https://discord.gg/PB8qxrQXup";
-
 export const header = {
   logoLink: meeFoundation,
-  links: [
-    {
-      name: "Projects",
-      link: `${meeFoundation}projects/`,
-      id: "projects",
-    },
-    {
-      name: "About us",
-      link: `${meeFoundation}about/`,
-      id: "about",
-    },
-  ],
+  links: [],
   rightLinks: [
     {
       name: "Join us",
       link: discord,
       icon: "discord",
+      ariaLabel: "Discord",
       target: "_blank",
       id: "discord",
-      ariaLabel: "Discord",
     },
   ],
   footerLinks: [
+    {
+      name: "About us",
+      link: `${meeFoundation}about/`,
+      id: "about",
+    },
     {
       link: `${meeFoundation}privacy-policy/`,
       name: "Privacy",
       id: "privacy-policy",
     },
+  ],
+  authLinks: [
     {
-      link: "/docs/",
-      name: "Docs",
-      id: "docs",
+      name: "Log in",
+      link: `${appLink}#sign-in`,
+      style: "outlined",
+      id: "sign-in",
+      buttonType: "primary",
+    },
+    {
+      name: "Sign up",
+      link: `${appLink}#sign-up`,
+      style: "filled",
+      id: "sign-up",
+      buttonType: "primary",
+      className: "hidden md:flex",
     },
   ],
 };
@@ -51,21 +58,16 @@ export const footer = {
       link: github,
       icon: "github",
       target: "_blank",
-      ariaLabel: "github",
+      ariaLabel: "Github",
     },
     {
       link: discord,
       icon: "discord",
       target: "_blank",
-      ariaLabel: "Discord",
+      ariaLabel: "discord",
     },
   ],
   rightLinks: [
-    {
-      name: "Products",
-      link: `${meeFoundation}products/`,
-      id: "products",
-    },
     {
       name: "About us",
       link: `${meeFoundation}about/`,
@@ -76,54 +78,5 @@ export const footer = {
       name: "Privacy",
       id: "privacy-policy",
     },
-    {
-      link: "/docs/",
-      name: "Docs",
-    },
   ],
-};
-export type EnvType = "local" | "prod";
-
-export const getAppEnv = (): EnvType => {
-  if (typeof window !== "undefined") {
-    const currentHost = window.location.hostname;
-    if (/.*localhost.*/.test(currentHost)) {
-      return "local";
-    } else {
-      return "prod";
-    }
-  } else {
-    return "prod";
-  }
-};
-
-export interface AppConfig {
-  type: "local" | "prod";
-  backendUrl: string;
-}
-
-const localConfig: AppConfig = {
-  type: "local",
-  backendUrl: "http://localhost:8000",
-};
-
-const prodConfig: AppConfig = {
-  type: "prod",
-  backendUrl: "http://localhost:8000",
-};
-
-const getConfig = (): AppConfig => {
-  const env = getAppEnv();
-  switch (env) {
-    case "local":
-      return localConfig;
-    case "prod":
-      return prodConfig;
-    default:
-      throw new Error("Unknown env was used in app configuration");
-  }
-};
-
-export default {
-  ...getConfig(),
 };
