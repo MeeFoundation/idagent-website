@@ -3,9 +3,21 @@ export const meeFoundation = "https://mee.foundation/";
 export const github =
 	"https://github.com/MeeFoundation/private-advertising-website";
 export const discord = "https://discord.gg/PB8qxrQXup";
+
 export const header = {
 	logoLink: meeFoundation,
-	links: [],
+	links: [
+		{
+			name: "Projects",
+			link: `${meeFoundation}projects/`,
+			id: "projects",
+		},
+		{
+			name: "About us",
+			link: `${meeFoundation}about/`,
+			id: "about",
+		},
+	],
 	rightLinks: [
 		{
 			name: "Join us",
