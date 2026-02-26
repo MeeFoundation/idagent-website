@@ -1,21 +1,21 @@
 ---
-import Layout from "@layouts/Layout.astro";
-import { Header, Footer } from "mee-components";
-import { header, footer } from "../config";
-import TypingLogo from "@components/TypingLogo.astro";
-import MirrorLogo from "@components/MirrorLogo.astro";
-import DataSection from "@components/DataSection.astro";
-import WhatIsMeeAnimation from "@components/WhatIsMeeAnimation.astro";
 import ApplicationDesktopSlider from "@components/ApplicationDesktopSlider.astro";
 import ApplicationMobileSlider from "@components/ApplicationMobileSlider.astro";
+import DataSection from "@components/DataSection.astro";
+import WhatIsMeeAnimation from "@components/WhatIsMeeAnimation.astro";
 import WhatKindDataAnimation from "@components/WhatKindDataAnimation.astro";
+import Layout from "@layouts/Layout.astro";
+import { Footer, Header, MirrorLogo, TypingLogo } from "mee-components";
+import { footer, header } from "../config";
 // import ExperimentalBuildSection from "@components/ExperimentalBuild.section.astro";
 ---
 
 <Layout title="Mee Foundation - idagents">
   <Header header={header} disableMobileMenu={true}>
     <div slot="logo">
-      <TypingLogo size="small" /><MirrorLogo size="small" />
+      <a href="https://mee.foundation">
+        <TypingLogo size="small" /><MirrorLogo size="small" /></a
+      >
     </div>
 
     <div slot="banner">
@@ -51,11 +51,11 @@ import WhatKindDataAnimation from "@components/WhatKindDataAnimation.astro";
           <p
             class="text-center text-xl xl:text-left xl:text-2xl dark:text-gray-200"
           >
-            An identity agent is an app that gives you your own
-            independent identity&mdash;one that can never be taken from you by
-            big tech or the government. It manages the storage of your
-            personal data, and allows you to privately share it with people and
-            organizations you trust.
+            An identity agent is an app that gives you your own independent
+            identity&mdash;one that can never be taken from you by big tech or
+            the government. It manages the storage of your personal data, and
+            allows you to privately share it with people and organizations you
+            trust.
           </p>
         </div>
         <!-- <div class="flex w-full justify-center xl:justify-start">
